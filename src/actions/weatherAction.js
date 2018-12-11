@@ -1,5 +1,5 @@
 import getCityName from '../helpers/getCityName';
-import { googleMapsApiKey, weatherApiKey } from '../helpers/config';
+import { googleMapsApiKey, weatherApiKey, weatherApi } from '../helpers/config';
 
 
 
@@ -8,7 +8,7 @@ export const getWeather = () => dispatch => {
 		fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.coords.latitude + ',' + data.coords.longitude + '&sensor=true&key=' + googleMapsApiKey + '&language=en')
 			.then(result => result.json())
 			.then(data => {
-				fetch(`https://api.apixu.com/v1/forecast.json?key=` + weatherApiKey + `&q=${getCityName(data.results)}`)
+				fetch(`${weatherApi}${weatherApiKey}&q=${getCityName(data.results)}`)
 					.then(result => result.json())
 					.then(weather => dispatch({
 						type: 'GET_MY_CITY_WEATHER',
@@ -20,12 +20,14 @@ export const getWeather = () => dispatch => {
 }
 
 export const getOtherWeather = (city) => dispatch => {
-	fetch(`https://api.apixu.com/v1/forecast.json?key=` + weatherApiKey + `&q=${city}`)
+	fetch(`${weatherApi}${weatherApiKey}&q=${city}`)
 		.then(result => result.json())
-		.then(weather => dispatch({
-			type: 'GET_OTHER_CITY_WEATHER',
-			payload: weather
-		}))
+		.then(otherWeather => { console.log(otherWeather);
+			dispatch({
+				type: 'GET_OTHER_CITY_WEATHER',
+				payload: otherWeather
+			})
+		})
 		.catch(err => console.log(err));
 }
 
