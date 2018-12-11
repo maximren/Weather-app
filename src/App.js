@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 import MyCity from './components/MyCity';
 import OtherCity from './components/OtherCity';
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <Provider store = {store}>
