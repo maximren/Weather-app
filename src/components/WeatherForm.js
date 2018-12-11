@@ -12,16 +12,17 @@ class WeatherForm extends PureComponent {
   }
 
   render() {
-    if(this.props.weather) {
-    return (
-      <div>
-        <img className="icon" alt="icon" src={this.props.weather.current.condition.icon} />
-        <div>{this.props.weather.current.condition.text}</div>
-        <div>Temperature is {this.props.weather.current.temp_c}°C</div>
-        <div>Wind is {this.props.weather.current.wind_dir},
+    if (this.props.weather) {
+      return (
+        <div>
+          <img className="icon" alt="icon" src={this.props.weather.current.condition.icon} />
+          <div>{this.props.weather.current.condition.text}</div>
+          <div>Temperature is {this.props.weather.current.temp_c}°C</div>
+          <div>Wind is {this.props.weather.current.wind_dir},
         speed is {this.props.weather.current.wind_kph} k/h </div>
-      </div>
-    )}
+        </div>
+      )
+    }
     return null;
   }
 }

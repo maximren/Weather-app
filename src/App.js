@@ -11,7 +11,7 @@ import OtherCity from './components/OtherCity';
 class App extends PureComponent {
   render() {
     return (
-      <Provider store = {store}>
+      <Provider store={store}>
         <BrowserRouter>
           <div className="App">
             <Navbar />

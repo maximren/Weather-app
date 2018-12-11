@@ -8,7 +8,6 @@ import SearchForm from './SearchForm';
 class OtherCity extends PureComponent {
 
   getWeatherDetails() {
-    console.log(this.props.otherWeather)
     if (this.props.otherWeather) {
       return <div>
         <img className="icon" alt="icon" src={this.props.otherWeather.current.condition.icon} />
@@ -17,11 +16,11 @@ class OtherCity extends PureComponent {
         <div>Wind is {this.props.otherWeather.current.wind_dir},
     speed is {this.props.otherWeather.current.wind_kph} k/h </div>
       </div>
-    } 
+    }
     return null
   }
 
-render() {
+  render() {
     return (
       <div>
         <SearchForm onAdd={this.props.getOtherWeather} />
