@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import WeatherForm from './WeatherForm';
-import Location from './Location';
+import LocationForm from './LocationForm';
 
 class MyCity extends PureComponent {
   render() {
     return (
       <div>
-        <Location />
+        <LocationForm />
         <WeatherForm />
       </div>
     )

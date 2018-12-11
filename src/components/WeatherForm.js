@@ -1,15 +1,42 @@
 import React, { PureComponent } from 'react'
 
-const api = "https://api.apixu.com/v1/forecast.json?key=c8e426cbb3864931b2b112415181112&q=Lviv"
+import { connect } from 'react-redux';
+
+import { getWeather } from '../actions/weatherAction';
+import { bindActionCreators } from 'redux';
+
 
 class WeatherForm extends PureComponent {
+  componentDidMount() {
+    this.props.getWeather();
+  }
+
   render() {
     return (
       <div>
-        WeatherForm
+        <img className="icon" alt="icon" src={this.props.weather.current.condition.icon} />
+        <div>{this.props.weather.current.condition.text}</div>
+        <div>Temperature is {this.props.weather.current.temp_c}°C</div>
+        <div>Wind is {this.props.weather.current.wind_dir},
+        speed is {this.props.weather.current.wind_kph} k/h </div>
       </div>
     )
   }
 }
 
-export default WeatherForm;
+
+const mapStateToProps = state => ({
+  weather: state.weatherReducer.weatherItem
+})
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      getWeather
+    },
+    dispatch
+  );
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherForm);
