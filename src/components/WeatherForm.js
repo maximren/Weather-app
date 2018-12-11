@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
-
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { getWeather } from '../actions/weatherAction';
-import { bindActionCreators } from 'redux';
+
 
 
 class WeatherForm extends PureComponent {
@@ -12,6 +12,7 @@ class WeatherForm extends PureComponent {
   }
 
   render() {
+    if(this.props.weather) {
     return (
       <div>
         <img className="icon" alt="icon" src={this.props.weather.current.condition.icon} />
@@ -20,13 +21,14 @@ class WeatherForm extends PureComponent {
         <div>Wind is {this.props.weather.current.wind_dir},
         speed is {this.props.weather.current.wind_kph} k/h </div>
       </div>
-    )
+    )}
+    return null;
   }
 }
 
 
 const mapStateToProps = state => ({
-  weather: state.weatherReducer.weatherItem
+  weather: state.weatherReducer.item
 })
 
 const mapDispatchToProps = dispatch =>
