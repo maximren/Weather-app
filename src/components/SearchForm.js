@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class SearchForm extends PureComponent {
     static propTypes = {
-        onAdd: PropTypes.func.isRequired
+        onAdd: PropTypes.func.isRequired,
     }
 
     constructor() {
@@ -23,9 +23,7 @@ class SearchForm extends PureComponent {
 	onSubmit(e) {
 		e.preventDefault();
 
-		const city = {
-			task: this.state.city
-		}
+		const city = this.state.city;
 		this.props.onAdd(city);
     }
     
