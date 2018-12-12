@@ -26,6 +26,9 @@ class SearchForm extends PureComponent {
     const city = this.state.city;
     if (city) {
       this.props.onAdd(city);
+      this.setState({
+        city: ''
+      })
     } else {
       return;
     }
