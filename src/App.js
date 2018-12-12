@@ -13,7 +13,7 @@ class App extends PureComponent {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div className="App">
+          <div>
             <Navbar />
             <Route exact path="/" component={MyCity} />
             <Route path="/other" component={OtherCity} />

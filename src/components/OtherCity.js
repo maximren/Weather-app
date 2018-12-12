@@ -9,8 +9,8 @@ class OtherCity extends PureComponent {
 
   getWeatherDetails() {
     if (this.props.otherWeather) {
-      return <div>
-        <img className="icon" alt="icon" src={this.props.otherWeather.current.condition.icon} />
+      return <div className="collection other">
+        <img alt="icon" src={this.props.otherWeather.current.condition.icon} />
         <div>{this.props.otherWeather.current.condition.text}</div>
         <div>Temperature is {this.props.otherWeather.current.temp_c}°C</div>
         <div>Wind is {this.props.otherWeather.current.wind_dir},

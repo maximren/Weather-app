@@ -1,3 +1,19 @@
-.App {
+
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  width: 40%;
   text-align: center;
+}
+
+.other {
+text-align: center;
+}
+
+.my-city {
+ text-align: center;
+ margin-top: 10%;
 }
